@@ -1,4 +1,6 @@
 {
+  "jwtSecret": "wTFdoweneedasecretfor",
+  "jwtSession": {"session": false},
   "development": {
     "username": "timecapsule",
     "password": "timecapsule",
