@@ -27,7 +27,7 @@ var server = http.createServer(app);
  */
 
 
-if (process.env.PORT == 'development'){
+if (process.env.ENV == 'development'){
   var db_json = {force: true}
 } else {
   var db_json = {}

@@ -23,5 +23,22 @@ router.post('/', function(req, res){
   })
 });
 
+router.post('/exist', function(req, res){
+
+    var email = req.body.email;
+    console.log('Checking Email ', email);
+    models.User.findOne({ where: {email: req.body.email.toLowerCase()} }).then(function(user){
+        console.log(user);
+        if (user && user.email) {
+            res.json({code: 0, msg:'No Such Email'});
+        } else {
+            res.json({code: 1, msg:'Email Exists'});
+        }
+    }).catch(function(error){
+        console.log(error);
+        res.sendStatus(404)
+    });
+});
+
 
 module.exports = router;
