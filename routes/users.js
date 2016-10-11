@@ -30,9 +30,9 @@ router.post('/exist', function(req, res){
     models.User.findOne({ where: {email: req.body.email.toLowerCase()} }).then(function(user){
         console.log(user);
         if (user && user.email) {
-            res.json({code: 0, msg:'No Such Email'});
-        } else {
             res.json({code: 1, msg:'Email Exists'});
+        } else {
+            res.json({code: 0, msg:'No Such Email'});
         }
     }).catch(function(error){
         console.log(error);
